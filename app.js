@@ -23,9 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update visa dropdown options
+        // Update visa dropdown options safely for all browsers
         const currentVisaVal = visaTypeSelect.value;
-        visaTypeSelect.innerHTML = `<option value="">-- ${currentLang === 'en' ? 'Select Visa Type' : 'ビザの種類を選択'} --</option>`;
+        while(visaTypeSelect.firstChild) {
+            visaTypeSelect.removeChild(visaTypeSelect.firstChild);
+        }
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = "";
+        defaultOpt.textContent = `-- ${currentLang === 'en' ? 'Select Visa Type' : 'ビザの種類を選択'} --`;
+        visaTypeSelect.appendChild(defaultOpt);
+
         if (typeof visaData !== 'undefined') {
             for (const [id, info] of Object.entries(visaData)) {
                 const option = document.createElement('option');
@@ -36,13 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         visaTypeSelect.value = currentVisaVal;
 
-        // Update application type options
+        // Update application type options safely for all browsers
         const currentAppVal = appTypeSelect.value || 'coe';
-        appTypeSelect.innerHTML = `
-            <option value="coe">${currentLang === 'en' ? 'Certificate of Eligibility (New)' : '在留資格認定証明書交付申請 (新規)'}</option>
-            <option value="change">${currentLang === 'en' ? 'Change of Visa Status' : '在留資格変更許可申請'}</option>
-            <option value="extension">${currentLang === 'en' ? 'Extension of Period of Stay' : '在留期間更新許可申請'}</option>
-        `;
+        while(appTypeSelect.firstChild) {
+            appTypeSelect.removeChild(appTypeSelect.firstChild);
+        }
+        
+        const appOpts = [
+            { value: 'coe', text: currentLang === 'en' ? 'Certificate of Eligibility (New)' : '在留資格認定証明書交付申請 (新規)' },
+            { value: 'change', text: currentLang === 'en' ? 'Change of Visa Status' : '在留資格変更許可申請' },
+            { value: 'extension', text: currentLang === 'en' ? 'Extension of Period of Stay' : '在留期間更新許可申請' }
+        ];
+
+        appOpts.forEach(o => {
+            const opt = document.createElement('option');
+            opt.value = o.value;
+            opt.textContent = o.text;
+            appTypeSelect.appendChild(opt);
+        });
+
         appTypeSelect.value = currentAppVal;
 
         // Re-render results if already visible
