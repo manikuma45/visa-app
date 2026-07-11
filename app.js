@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         visaTypeSelect.value = currentVisaVal;
 
         // Update application type options
-        const currentAppVal = appTypeSelect.value;
+        const currentAppVal = appTypeSelect.value || 'coe';
         appTypeSelect.innerHTML = `
             <option value="coe">${currentLang === 'en' ? 'Certificate of Eligibility (New)' : '在留資格認定証明書交付申請 (新規)'}</option>
             <option value="change">${currentLang === 'en' ? 'Change of Visa Status' : '在留資格変更許可申請'}</option>
