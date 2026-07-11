@@ -23,8 +23,8 @@
             <span class="logo-text">GYOSEISHOSHI <br> JAPAN IMMIGRATION</span>
         </div>
         <div class="header-actions">
-            <span class="lang-switch">🇮🇳 / 🇯🇵</span>
-            <a href="#contact" class="btn btn-primary">Book Consultation</a>
+            <span class="lang-switch" id="langToggle" style="cursor:pointer; font-weight:bold;">EN / JP</span>
+            <a href="#contact" class="btn btn-primary lang-text" data-en="Book Consultation" data-ja="無料相談を予約する">Book Consultation</a>
         </div>
     </header>
 
@@ -34,41 +34,38 @@
             <!-- Standalone Checker inside Hero -->
             <div class="hero-checker">
                 <div class="checker-container" style="padding: 3rem; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; background: white;">
-                    <h2 style="text-align: center; margin-bottom: 0.5rem; font-size: 2rem;">Visa Requirement Checker</h2>
-                    <p class="subtitle" style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">Select your visa type to see the exact documents required for your application.</p>
+                    <h2 class="lang-text" data-en="Visa Requirement Checker" data-ja="ビザ必要書類チェッカー" style="text-align: center; margin-bottom: 0.5rem; font-size: 2rem;">Visa Requirement Checker</h2>
+                    <p class="subtitle lang-text" data-en="Select your visa type to see the exact documents required for your application." data-ja="申請するビザの種類を選ぶと、必要な書類の正確なリストが表示されます。" style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">Select your visa type to see the exact documents required for your application.</p>
                     
                     <div class="checker-form">
                         <div class="form-group">
-                            <label style="font-weight: 600;">Visa Type</label>
+                            <label class="lang-text" data-en="Visa Type" data-ja="ビザの種類" style="font-weight: 600;">Visa Type</label>
                             <select id="visaType" style="padding: 1rem; font-size: 1.1rem;">
-                                <option value="">-- Select Visa Type --</option>
-                                <!-- Options will be populated by app.js -->
+                                <!-- Options populated by app.js -->
                             </select>
                         </div>
                         <div class="form-group" id="appTypeGroup" style="margin-top: 1.5rem;">
-                            <label style="font-weight: 600;">Application Type</label>
+                            <label class="lang-text" data-en="Application Type" data-ja="申請の種類" style="font-weight: 600;">Application Type</label>
                             <select id="appType" style="padding: 1rem; font-size: 1.1rem;">
-                                <option value="coe">Certificate of Eligibility (New)</option>
-                                <option value="change">Change of Visa Status</option>
-                                <option value="extension">Extension of Period of Stay</option>
+                                <!-- Options populated by app.js -->
                             </select>
                         </div>
-                        <button id="checkBtn" class="btn btn-primary btn-large" style="width: 100%; margin-top: 2rem; font-size: 1.2rem; padding: 1rem;">Check Required Documents</button>
+                        <button id="checkBtn" class="btn btn-primary btn-large lang-text" data-en="Check Required Documents" data-ja="必要書類を確認する" style="width: 100%; margin-top: 2rem; font-size: 1.2rem; padding: 1rem;">Check Required Documents</button>
                     </div>
 
                     <!-- Results Area -->
                     <div id="resultsArea" class="results-area" style="display: none; text-align: left; margin-top: 2rem; border-top: 2px solid var(--gray-light); padding-top: 2rem;">
                         <h3 id="resultTitle" class="result-title" style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);"></h3>
                         <div class="basic-docs">
-                            <p style="font-weight: 600; margin-bottom: 1rem;">Here is your complete checklist of required documents:</p>
+                            <p class="lang-text" data-en="Here is your complete checklist of required documents:" data-ja="こちらが申請に必要な書類の完全なリストです：" style="font-weight: 600; margin-bottom: 1rem;">Here is your complete checklist of required documents:</p>
                             <ul id="basicDocList" style="list-style: none; padding-left: 0;">
                                 <!-- Fetched docs will go here -->
                             </ul>
                         </div>
 
                         <div class="cta-box mt-2" style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
-                            <p class="cta-text" style="font-weight: 600; margin-bottom: 1rem;">Need help preparing these documents in Japanese?</p>
-                            <a href="https://wa.me/819000000000" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large cta-btn">Consult with us on WhatsApp</a>
+                            <p class="cta-text lang-text" data-en="Need help preparing these documents in Japanese?" data-ja="これらの日本語での書類作成にお困りですか？" style="font-weight: 600; margin-bottom: 1rem;">Need help preparing these documents in Japanese?</p>
+                            <a href="https://wa.me/819000000000" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large cta-btn lang-text" data-en="Consult with us on WhatsApp" data-ja="WhatsAppで無料相談する">Consult with us on WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -76,27 +73,26 @@
         </div>
     </section>
 
-
     <!-- Pain Points Section -->
     <section class="pain-points section-padding" id="pain-points">
         <div class="container text-center">
-            <h2>Struggling with Japanese Immigration?</h2>
-            <p class="subtitle">Applying for a visa in Japan is not just paperwork. It's a high-risk process.</p>
+            <h2 class="lang-text" data-en="Struggling with Japanese Immigration?" data-ja="日本の入管手続きにお悩みですか？">Struggling with Japanese Immigration?</h2>
+            <p class="subtitle lang-text" data-en="Applying for a visa in Japan is not just paperwork. It's a high-risk process." data-ja="ビザ申請は単なる事務作業ではなく、人生を左右する重要なプロセスです。">Applying for a visa in Japan is not just paperwork. It's a high-risk process.</p>
             <div class="grid-3">
                 <div class="card">
                     <div class="icon">⏳</div>
-                    <h3>Lost Time</h3>
-                    <p>Immigration bureaus are incredibly crowded. Expect to lose half a day or more just waiting in line.</p>
+                    <h3 class="lang-text" data-en="Lost Time" data-ja="時間のロス">Lost Time</h3>
+                    <p class="lang-text" data-en="Immigration bureaus are incredibly crowded. Expect to lose half a day or more just waiting in line." data-ja="入管窓口は非常に混雑しており、待ち時間だけで半日以上を無駄にすることも少なくありません。">Immigration bureaus are incredibly crowded. Expect to lose half a day or more just waiting in line.</p>
                 </div>
                 <div class="card">
                     <div class="icon">📑</div>
-                    <h3>Complex Japanese</h3>
-                    <p>Legal terms and document requirements change constantly. Online information is often outdated.</p>
+                    <h3 class="lang-text" data-en="Complex Japanese" data-ja="難解な日本語">Complex Japanese</h3>
+                    <p class="lang-text" data-en="Legal terms and document requirements change constantly. Online information is often outdated." data-ja="法律用語や必要書類は頻繁に変更されます。ネット上の情報は古くなっていることが多いです。">Legal terms and document requirements change constantly. Online information is often outdated.</p>
                 </div>
                 <div class="card">
                     <div class="icon">⚠️</div>
-                    <h3>Risk of Rejection</h3>
-                    <p>A single missing document or incorrect "Reason Statement" can lead to rejection and forced return.</p>
+                    <h3 class="lang-text" data-en="Risk of Rejection" data-ja="不許可のリスク">Risk of Rejection</h3>
+                    <p class="lang-text" data-en="A single missing document or incorrect 'Reason Statement' can lead to rejection and forced return." data-ja="たった一つの書類の不備や、不適切な「理由書」が原因で、不許可となり帰国を余儀なくされるリスクがあります。">A single missing document or incorrect 'Reason Statement' can lead to rejection and forced return.</p>
                 </div>
             </div>
         </div>
@@ -107,19 +103,19 @@
         <div class="container">
             <div class="flex-wrap">
                 <div class="flex-1">
-                    <h2>Why Choose Our Services?</h2>
-                    <p>As an Indian-born Administrative Scrivener (Gyoseishoshi) in Japan, we understand both the cultural nuances and the strict legal requirements.</p>
+                    <h2 class="lang-text" data-en="Why Choose Our Services?" data-ja="当事務所が選ばれる理由">Why Choose Our Services?</h2>
+                    <p class="lang-text" data-en="As an Indian-born Administrative Scrivener (Gyoseishoshi) in Japan, we understand both the cultural nuances and the strict legal requirements." data-ja="インド出身の日本の国家資格者（行政書士）として、文化的な背景と日本の厳格な法律要件の双方を深く理解しています。">As an Indian-born Administrative Scrivener (Gyoseishoshi) in Japan, we understand both the cultural nuances and the strict legal requirements.</p>
                     <ul class="feature-list">
-                        <li>✅ Native support in English, Hindi, and Japanese.</li>
-                        <li>✅ Zero visits to the immigration bureau required by you.</li>
-                        <li>✅ Expert drafting of complex "Reason Statements".</li>
-                        <li>✅ High approval rate through rigorous pre-checks.</li>
+                        <li class="lang-text" data-en="✅ Native support in English, Hindi, and Japanese." data-ja="✅ 英語、ヒンディー語、日本語でのネイティブサポート">✅ Native support in English, Hindi, and Japanese.</li>
+                        <li class="lang-text" data-en="✅ Zero visits to the immigration bureau required by you." data-ja="✅ お客様が入管へ出向く必要はありません">✅ Zero visits to the immigration bureau required by you.</li>
+                        <li class="lang-text" data-en="✅ Expert drafting of complex 'Reason Statements'." data-ja="✅ 複雑な「理由書」の専門的な作成代行">✅ Expert drafting of complex 'Reason Statements'.</li>
+                        <li class="lang-text" data-en="✅ High approval rate through rigorous pre-checks." data-ja="✅ 厳格な事前審査による高い許可率">✅ High approval rate through rigorous pre-checks.</li>
                     </ul>
                 </div>
                 <div class="flex-1 text-center">
                     <div class="trust-badge">
                         <span class="flag">🇮🇳 🤝 🇯🇵</span>
-                        <br>Certified Immigration Professional
+                        <br><span class="lang-text" data-en="Certified Immigration Professional" data-ja="入管庁承認 申請取次行政書士">Certified Immigration Professional</span>
                     </div>
                 </div>
             </div>
@@ -129,11 +125,11 @@
     <!-- Final CTA / Contact Section -->
     <section class="contact-section section-padding" id="contact">
         <div class="container text-center">
-            <h2>Ready to Secure Your Visa?</h2>
-            <p>Don't risk your future in Japan. Let professionals handle the complex process.</p>
+            <h2 class="lang-text" data-en="Ready to Secure Your Visa?" data-ja="ビザ申請の準備はできましたか？">Ready to Secure Your Visa?</h2>
+            <p class="lang-text" data-en="Don't risk your future in Japan. Let professionals handle the complex process." data-ja="日本での未来を危険にさらさないでください。複雑な手続きはプロにお任せください。">Don't risk your future in Japan. Let professionals handle the complex process.</p>
             <div class="contact-buttons mt-2">
-                <a href="#" class="btn btn-whatsapp btn-large">💬 Chat on WhatsApp</a>
-                <a href="#" class="btn btn-line btn-large">🟢 Chat on LINE</a>
+                <a href="#" class="btn btn-whatsapp btn-large lang-text" data-en="💬 Chat on WhatsApp" data-ja="💬 WhatsAppで相談する">💬 Chat on WhatsApp</a>
+                <a href="#" class="btn btn-line btn-large lang-text" data-en="🟢 Chat on LINE" data-ja="🟢 LINEで相談する">🟢 Chat on LINE</a>
             </div>
         </div>
     </section>
@@ -141,7 +137,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>&copy; 2026 Gyoseishoshi Japan Immigration. All Rights Reserved.</p>
+            <p class="lang-text" data-en="&copy; 2026 Gyoseishoshi Japan Immigration. All Rights Reserved." data-ja="&copy; 2026 Gyoseishoshi Japan Immigration. 無断転載を禁じます。">&copy; 2026 Gyoseishoshi Japan Immigration. All Rights Reserved.</p>
         </div>
     </footer>
 
