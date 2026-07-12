@@ -150,4 +150,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     updateUILanguage();
+
+    // Secure Phone Number Obfuscation to prevent scraping
+    const secureCallBtn = document.getElementById('secureCallBtn');
+    if (secureCallBtn) {
+        secureCallBtn.addEventListener('click', () => {
+            // "0426452901"
+            const p1 = '042';
+            const p2 = '645';
+            const p3 = '2901';
+            window.location.href = `tel:${p1}${p2}${p3}`;
+        });
+    }
 });
