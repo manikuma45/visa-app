@@ -162,4 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = `tel:${p1}${p2}${p3}`;
         });
     }
+
+    // Secure WhatsApp Link Obfuscation to prevent scraping
+    const waBtns = document.querySelectorAll('.secure-wa-btn');
+    waBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const w1 = '8190';
+            const w2 = '5395';
+            const w3 = '5657';
+            window.open(`https://wa.me/${w1}${w2}${w3}`, '_blank', 'noopener,noreferrer');
+        });
+    });
 });
