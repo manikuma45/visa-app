@@ -78,11 +78,41 @@
                                 <!-- Options populated by app.js -->
                             </select>
                         </div>
+                        
+                        <!-- Risk Questions -->
+                        <div class="form-group risk-questions" style="margin-top: 2rem; background: #fff8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ff4757;">
+                            <h3 class="lang-text" data-en="Important Diagnostic Questions" data-ja="重要な診断チェック" style="font-size: 1.2rem; margin-bottom: 1rem; color: #ff4757;">Important Diagnostic Questions</h3>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label class="lang-text" data-en="1. Have you ever paid tax, pension, or health insurance late, or have unpaid amounts?" data-ja="1. 過去に税金、年金、健康保険を1日でも遅れて払ったこと、または未納がありますか？" style="display:block; margin-bottom: 0.5rem; font-weight: 500;">1. Have you ever paid tax, pension, or health insurance late?</label>
+                                <label style="margin-right: 1.5rem; cursor: pointer;"><input type="radio" name="q1" value="yes"> <span class="lang-text" data-en="Yes" data-ja="はい">Yes</span></label>
+                                <label style="cursor: pointer;"><input type="radio" name="q1" value="no" checked> <span class="lang-text" data-en="No" data-ja="いいえ">No</span></label>
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label class="lang-text" data-en="2. Have you ever had trouble with the police, including traffic violations (e.g., speeding)?" data-ja="2. 過去に警察のお世話になったこと（スピード違反などの交通違反を含む）はありますか？" style="display:block; margin-bottom: 0.5rem; font-weight: 500;">2. Have you ever had trouble with the police?</label>
+                                <label style="margin-right: 1.5rem; cursor: pointer;"><input type="radio" name="q2" value="yes"> <span class="lang-text" data-en="Yes" data-ja="はい">Yes</span></label>
+                                <label style="cursor: pointer;"><input type="radio" name="q2" value="no" checked> <span class="lang-text" data-en="No" data-ja="いいえ">No</span></label>
+                            </div>
+
+                            <div style="margin-bottom: 0;">
+                                <label class="lang-text" data-en="3. Have you ever been rejected for a visa, or received a request for additional documents from immigration?" data-ja="3. 過去のビザ申請で「不許可」になったことや、入管から「追加資料提出通知書」が届いた経験はありますか？" style="display:block; margin-bottom: 0.5rem; font-weight: 500;">3. Have you ever been rejected for a visa?</label>
+                                <label style="margin-right: 1.5rem; cursor: pointer;"><input type="radio" name="q3" value="yes"> <span class="lang-text" data-en="Yes" data-ja="はい">Yes</span></label>
+                                <label style="cursor: pointer;"><input type="radio" name="q3" value="no" checked> <span class="lang-text" data-en="No" data-ja="いいえ">No</span></label>
+                            </div>
+                        </div>
+
                         <button id="checkBtn" class="btn btn-primary btn-large lang-text" data-en="Check Required Documents" data-ja="必要書類を確認する" style="width: 100%; margin-top: 2rem; font-size: 1.2rem; padding: 1rem;">Check Required Documents</button>
                     </div>
 
                     <!-- Results Area -->
                     <div id="resultsArea" class="results-area" style="display: none; text-align: left; margin-top: 2rem; border-top: 2px solid var(--gray-light); padding-top: 2rem;">
+                        <!-- Risk Warning Box -->
+                        <div id="riskWarningBox" style="background: #fff; border: 2px solid #ff4757; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; display: none;">
+                            <h3 class="lang-text" data-en="Diagnostic Result" data-ja="診断結果" style="color: #ff4757; margin-bottom: 0.5rem;">Diagnostic Result</h3>
+                            <p id="riskMessage" style="font-size: 1.05rem; font-weight: 600; line-height: 1.5; margin-bottom: 0;"></p>
+                        </div>
+
                         <h3 id="resultTitle" class="result-title" style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);"></h3>
                         <div class="basic-docs">
                             <p class="lang-text" data-en="Here is your complete checklist of required documents:" data-ja="こちらが申請に必要な書類の完全なリストです：" style="font-weight: 600; margin-bottom: 1rem;">Here is your complete checklist of required documents:</p>

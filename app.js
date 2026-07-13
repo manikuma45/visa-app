@@ -131,6 +131,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Calculate Risk Score
+        let yesCount = 0;
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        if (q1 && q1.value === 'yes') yesCount++;
+        if (q2 && q2.value === 'yes') yesCount++;
+        if (q3 && q3.value === 'yes') yesCount++;
+
+        const riskWarningBox = document.getElementById('riskWarningBox');
+        const riskMessage = document.getElementById('riskMessage');
+        
+        if (riskWarningBox && riskMessage) {
+            riskWarningBox.style.display = 'block';
+            if (yesCount === 0) {
+                riskWarningBox.style.borderColor = '#1dd1a1';
+                riskWarningBox.querySelector('h3').style.color = '#1dd1a1';
+                riskMessage.innerHTML = currentLang === 'en' ? 
+                    "✅ No critical risks detected. However, immigration screening is getting stricter. Even minor document flaws can cause delays or rejection. Consult a professional to ensure success." : 
+                    "✅ 致命的なリスクはありません。ただし、入管の審査は年々厳しくなっており、少しの書類不備でも遅延や不許可に繋がります。確実を期すならプロにお任せください。";
+            } else if (yesCount === 1) {
+                riskWarningBox.style.borderColor = '#ff9f43';
+                riskWarningBox.querySelector('h3').style.color = '#ff9f43';
+                riskMessage.innerHTML = currentLang === 'en' ? 
+                    "⚠️ [High Risk] Your past record will be strictly scrutinized. Submitting basic documents alone will likely lead to rejection. Consult an expert immediately to cover these risks." : 
+                    "⚠️ 【高リスク】入管はあなたの過去の履歴（未納や違反など）を厳しく審査します。ネットにある基本書類だけを出しても、マイナス点をカバーできずに不許可になる可能性が非常に高いです。今すぐプロの行政書士にご相談ください。";
+            } else {
+                riskWarningBox.style.borderColor = '#ff4757';
+                riskWarningBox.querySelector('h3').style.color = '#ff4757';
+                riskMessage.innerHTML = currentLang === 'en' ? 
+                    "🚨 [Critical Danger] High risk of rejection and potential return to your home country if you apply by yourself. DO NOT apply alone. You need emergency professional intervention." : 
+                    "🚨 【危険】自分で申請した場合、不許可になり母国へ帰国しなければならないリスクが極めて高い状態です。絶対に自分で申請しないでください。あなたの状況を正確に分析し、正しい手続きを行うために、今すぐ専門家による緊急対応が必要です。";
+            }
+        }
+
         const visaInfo = visaData[visaType];
         
         const resultsArea = document.getElementById('resultsArea');
