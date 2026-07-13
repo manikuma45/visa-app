@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics (Placeholder) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QT5S17CG17"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-QT5S17CG17');
     </script>
 </head>
 <body>
@@ -40,6 +39,33 @@
                     <p class="subtitle lang-text" data-en="Select your visa type to see the exact documents required for your application." data-ja="申請するビザの種類を選ぶと、必要な書類の正確なリストが表示されます。" style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">Select your visa type to see the exact documents required for your application.</p>
                     
                     <div class="checker-form">
+                        <!-- Nationality -->
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label class="lang-text" data-en="Your Nationality" data-ja="国籍" style="font-weight: 600;">Your Nationality</label>
+                            <select id="nationality" style="padding: 1rem; font-size: 1.1rem; width: 100%;">
+                                <option value="" class="lang-text" data-en="-- Select Nationality --" data-ja="-- 国籍を選択してください --">-- Select Nationality --</option>
+                                <option value="India">India (インド)</option>
+                                <option value="Nepal">Nepal (ネパール)</option>
+                                <option value="Pakistan">Pakistan (パキスタン)</option>
+                                <option value="Bangladesh">Bangladesh (バングラデシュ)</option>
+                                <option value="Sri Lanka">Sri Lanka (スリランカ)</option>
+                                <option value="Philippines">Philippines (フィリピン)</option>
+                                <option value="Vietnam">Vietnam (ベトナム)</option>
+                                <option value="China">China (中国)</option>
+                                <option value="Other" class="lang-text" data-en="Other" data-ja="その他">Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Current Location -->
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label class="lang-text" data-en="Current Location" data-ja="現在の居住地" style="font-weight: 600;">Current Location</label>
+                            <select id="currentLocation" style="padding: 1rem; font-size: 1.1rem; width: 100%;">
+                                <option value="" class="lang-text" data-en="-- Select Location --" data-ja="-- 居住地を選択してください --">-- Select Location --</option>
+                                <option value="in_japan" class="lang-text" data-en="Already in Japan" data-ja="日本に住んでいる（変更・更新）">Already in Japan</option>
+                                <option value="outside_japan" class="lang-text" data-en="Outside Japan" data-ja="海外に住んでいる（新規呼び寄せ）">Outside Japan</option>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label class="lang-text" data-en="Visa Type" data-ja="ビザの種類" style="font-weight: 600;">Visa Type</label>
                             <select id="visaType" style="padding: 1rem; font-size: 1.1rem;">

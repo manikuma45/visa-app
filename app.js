@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const appTypeGroup = document.getElementById('appTypeGroup');
     const appTypeSelect = document.getElementById('appType');
     const langToggle = document.getElementById('langToggle');
+    const nationalitySelect = document.getElementById('nationality');
+    const currentLocationSelect = document.getElementById('currentLocation');
 
     // Language toggle logic
     langToggle.addEventListener('click', () => {
@@ -93,16 +95,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Auto-select COE if outside Japan
+    if (currentLocationSelect) {
+        currentLocationSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'outside_japan') {
+                appTypeSelect.value = 'coe';
+                appTypeGroup.style.display = 'none';
+            } else {
+                appTypeGroup.style.display = 'flex';
+            }
+        });
+    }
+
     // Check Button Logic
     document.getElementById('checkBtn').addEventListener('click', renderResults);
 
     function renderResults() {
         const visaType = visaTypeSelect.value;
         const appType = appTypeSelect.value;
+        const nationality = nationalitySelect ? nationalitySelect.value : '';
+        const currentLocation = currentLocationSelect ? currentLocationSelect.value : '';
         
-        if (!visaType || !appType) {
-            alert(currentLang === 'en' ? "Please select both Visa Type and Application Type." : "ビザの種類と申請の種類を選択してください。");
+        if (!nationality || !currentLocation || !visaType || !appType) {
+            alert(currentLang === 'en' ? "Please select Nationality, Location, Visa Type, and Application Type." : "国籍、居住地、ビザの種類、申請の種類をすべて選択してください。");
             return;
+        }
+
+        // Track event in GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'visa_check', {
+                'nationality': nationality,
+                'location': currentLocation,
+                'visa_type': visaType,
+                'app_type': appType
+            });
         }
 
         const visaInfo = visaData[visaType];
@@ -168,6 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
     waBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            // Track conversion in GA4
+            if (typeof gtag === 'function') {
+                gtag('event', 'whatsapp_click', {
+                    'event_category': 'conversion',
+                    'event_label': 'whatsapp_contact'
+                });
+            }
             const w1 = '8190';
             const w2 = '5395';
             const w3 = '5657';
